@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'parking_tickets/index'
+  get 'parking_tickets/show'
   get 'vehicles/index'
   get 'vehicles/show'
   get 'owners/index'
