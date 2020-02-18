@@ -6,9 +6,9 @@ class CreateVehicles < ActiveRecord::Migration[6.0]
       t.string :model
       t.string :color
       t.string :transmission_type
-      t.int :year
+      t.integer :year
       t.string :engine_size
-      t.int :kilometrage
+      t.integer :kilometrage
       t.references :owner, null: false, foreign_key: true
 
       t.timestamps

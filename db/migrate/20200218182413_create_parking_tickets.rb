@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateParkingTickets < ActiveRecord::Migration[6.0]
   def change
     create_table :parking_tickets do |t|
@@ -6,8 +8,8 @@ class CreateParkingTickets < ActiveRecord::Migration[6.0]
       t.string :street
       t.string :latitude
       t.string :longitude
-      t.double :discounted_price
-      t.double :full_price
+      t.decimal :discounted_price
+      t.decimal :full_price
       t.datetime :issue_date
 
       t.timestamps

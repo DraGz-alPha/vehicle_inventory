@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateOwners < ActiveRecord::Migration[6.0]
   def change
     create_table :owners do |t|
@@ -5,7 +7,7 @@ class CreateOwners < ActiveRecord::Migration[6.0]
       t.string :middle_name
       t.string :last_name
       t.string :prefix
-      t.int :age
+      t.integer :age
 
       t.timestamps
     end
