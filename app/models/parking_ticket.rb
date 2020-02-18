@@ -1,0 +1,2 @@
+class ParkingTicket < ApplicationRecord
+end

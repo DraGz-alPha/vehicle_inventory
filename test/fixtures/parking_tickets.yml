@@ -1,0 +1,21 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  ticket_number: MyString
+  violation: MyString
+  street: MyString
+  latitude: MyString
+  longitude: MyString
+  discounted_price: 
+  full_price: 
+  issue_date: 2020-02-18 12:24:13
+
+two:
+  ticket_number: MyString
+  violation: MyString
+  street: MyString
+  latitude: MyString
+  longitude: MyString
+  discounted_price: 
+  full_price: 
+  issue_date: 2020-02-18 12:24:13
