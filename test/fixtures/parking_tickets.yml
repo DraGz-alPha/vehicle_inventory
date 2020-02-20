@@ -6,9 +6,11 @@ one:
   street: MyString
   latitude: MyString
   longitude: MyString
-  discounted_price: 
-  full_price: 
-  issue_date: 2020-02-18 12:24:13
+  discounted_price: 9.99
+  full_price: 9.99
+  issue_date: 2020-02-20 16:30:54
+  owner: one
+  vehicle: one
 
 two:
   ticket_number: MyString
@@ -16,6 +18,8 @@ two:
   street: MyString
   latitude: MyString
   longitude: MyString
-  discounted_price: 
-  full_price: 
-  issue_date: 2020-02-18 12:24:13
+  discounted_price: 9.99
+  full_price: 9.99
+  issue_date: 2020-02-20 16:30:54
+  owner: two
+  vehicle: two
