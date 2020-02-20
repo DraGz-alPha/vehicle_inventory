@@ -1,2 +1,10 @@
-<h1>Owners#index</h1>
-<p>Find me in app/views/owners/index.html.erb</p>
+<% if @owners.empty? %>
+  <p>There are no owners available.</p>
+<% else %>
+  <% @owners.each do |owner| %>
+    <h3><%= "#{owner.prefix} #{owner.first_name} #{owner.middle_name} #{owner.last_name}" %></h3>
+    <%# <p>
+      Learn more about <%= link_to "house #{house.name}", house %>
+    <%# </p> %>
+  <% end %>
+<% end %>
