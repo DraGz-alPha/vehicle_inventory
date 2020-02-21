@@ -6,3 +6,7 @@
 <p>Location: <br><%= "Lat: #{@parking_ticket.latitude} Long: #{@parking_ticket.longitude}" %></p>
 <p>Discounted Price: <span style="color:green; font-weight:bold"><%= "$#{@parking_ticket.discounted_price}0" %></span></p>
 <p>Full Price: <span style="color:green; font-weight:bold"><%= "$#{@parking_ticket.full_price}0" %></span></p>
+
+<p>
+<%= image_tag "https://maps.googleapis.com/maps/api/staticmap?zoom=17&size=400x300&markers=size:small%7Ccolor:red%7C#{@parking_ticket.latitude},#{@parking_ticket.longitude}&key=#{Rails.application.credentials.google_maps_api_key}", alt: "Map" %>
+</p>
