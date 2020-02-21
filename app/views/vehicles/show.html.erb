@@ -1,2 +1,19 @@
-<h1>Vehicles#show</h1>
-<p>Find me in app/views/vehicles/show.html.erb</p>
+<h3><%= "#{@vehicle.year} #{@vehicle.make} #{@vehicle.model}" %></h3>
+<h6>Vehicle Information:</h6>
+<ul>
+  <li>VIN: <%="#{@vehicle.vin}"%></li>
+  <li>Make: <%="#{@vehicle.make}"%></li>
+  <li>Model: <%="#{@vehicle.model}"%></li>
+  <li>Year: <%="#{@vehicle.year}"%></li>
+  <li>Color: <%="#{@vehicle.color}"%></li>
+  <li>Transmission: <%="#{@vehicle.transmission_type}"%></li>
+  <li>Engine: <%="#{@vehicle.engine_size}"%></li>
+  <li>Kilometrage: <%="#{@vehicle.kilometrage}"%></li>
+</ul>
+
+<h6>Vehicle Parking Tickets:</h6>
+<ul>
+<% @vehicle.parking_tickets.each do |ticket| %>
+  <li><%= link_to "#{ticket.ticket_number} - #{ticket.issue_date}", ticket %></li>
+<% end %>
+</ul>
