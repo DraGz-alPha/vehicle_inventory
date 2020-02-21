@@ -2,6 +2,12 @@
 <p>
   This owner has <%= @owner.vehicles.count %> vehicles.
 </p>
+<% @owner.vehicles.each do |vehicle| %>
+  <p><%= link_to "#{vehicle.year} #{vehicle.make} #{vehicle.model}", vehicle %></p>
+<% end %>
 <p>
   This owner has <%= @owner.parking_tickets.count %> parking tickets.
 </p>
+<% @owner.parking_tickets.each do |ticket| %>
+  <h3><%= link_to "#{ticket.ticket_number} - #{ticket.issue_date}", ticket %></h3>
+<% end %>
