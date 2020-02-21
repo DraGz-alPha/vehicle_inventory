@@ -1,2 +1,8 @@
-<h1>ParkingTickets#show</h1>
-<p>Find me in app/views/parking_tickets/show.html.erb</p>
+<h3><%= @parking_ticket.ticket_number %></h3>
+<h5><%= @parking_ticket.issue_date %></h5>
+
+<p>Violation: <%= @parking_ticket.violation %></p>
+<p>Street: <%= @parking_ticket.street %></p>
+<p>Location: <br><%= "Lat: #{@parking_ticket.latitude} Long: #{@parking_ticket.longitude}" %></p>
+<p>Discounted Price: <span style="color:green; font-weight:bold"><%= "$#{@parking_ticket.discounted_price}0" %></span></p>
+<p>Full Price: <span style="color:green; font-weight:bold"><%= "$#{@parking_ticket.full_price}0" %></span></p>
