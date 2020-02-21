@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   get 'owners/show'
 
   resources :owners, only: :show
+  resources :vehicles, only: :show
+  resources :parking_tickets, only: :show
 
   root 'owners#index'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
