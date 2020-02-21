@@ -6,7 +6,6 @@ class OwnersController < ApplicationController
   end
 
   def show
-    # @owner = Owner.includes(:students, :teachers).find(params[:id])
-    @owner = Owner.find(params[:id])
+    @owner = Owner.includes(:vehicles, :parking_tickets).find(params[:id])
   end
 end

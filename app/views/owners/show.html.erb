@@ -1,2 +1,7 @@
-<h1>Owners#show</h1>
-<p>Find me in app/views/owners/show.html.erb</p>
+<h3><%= "#{@owner.prefix} #{@owner.first_name} #{@owner.middle_name} #{@owner.last_name}" %></h3>
+<p>
+  This owner has <%= @owner.vehicles.count %> vehicles.
+</p>
+<p>
+  This owner has <%= @owner.parking_tickets.count %> parking tickets.
+</p>
