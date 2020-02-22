@@ -10,20 +10,12 @@ response = Net::HTTP.get_response(uri)
 
 parking_tickets = JSON.parse(response.body)
 
-# puts "Number of tickets: #{parking_tickets.count}"
-
-# WORKS
-# parking_tickets.each do |ticket|
-#   puts ticket['ticket_number']
-# end
-
 ParkingTicket.destroy_all
 Vehicle.destroy_all
 Owner.destroy_all
 
 NUMBER_OF_OWNERS = 100
-# NUMBER_OF_VEHICLES = 150
-# NUMBER_OF_PARKING_TICKETS = 98
+
 current_ticket_index = 0
 
 NUMBER_OF_OWNERS.times do
@@ -57,16 +49,21 @@ NUMBER_OF_OWNERS.times do
 
     number_of_parking_tickets.times do
       current_ticket = parking_tickets[current_ticket_index]
-      ParkingTicket.create(owner: owner,
-                           vehicle: vehicle,
-                           ticket_number: current_ticket['ticket_number'],
-                           violation: current_ticket['violation'],
-                           street: current_ticket['street'],
-                           latitude: current_ticket['location'] ? current_ticket['location']['latitude'] : '',
-                           longitude: current_ticket['location'] ? current_ticket['location']['longitude'] : '',
-                           discounted_price: current_ticket['discounted_fine'],
-                           full_price: current_ticket['full_fine'],
-                           issue_date: current_ticket['issue_date'])
+
+      # This ensures a parking ticket with location data is saved
+      # (so maps api won't complain about null lat and long)
+      if current_ticket['location']
+        ParkingTicket.create(owner: owner,
+                             vehicle: vehicle,
+                             ticket_number: current_ticket['ticket_number'],
+                             violation: current_ticket['violation'],
+                             street: current_ticket['street'],
+                             latitude: current_ticket['location']['latitude'],
+                             longitude: current_ticket['location']['longitude'],
+                             discounted_price: current_ticket['discounted_fine'],
+                             full_price: current_ticket['full_fine'],
+                             issue_date: current_ticket['issue_date'])
+      end
 
       current_ticket_index += 1
     end
