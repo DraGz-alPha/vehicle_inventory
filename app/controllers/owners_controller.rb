@@ -2,7 +2,7 @@
 
 class OwnersController < ApplicationController
   def index
-    @owners = Owner.all
+    @owners = Owner.order(:last_name).page(params[:page])
   end
 
   def show
