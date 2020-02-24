@@ -10,6 +10,15 @@ response = Net::HTTP.get_response(uri)
 
 parking_tickets = JSON.parse(response.body)
 
+# uri = URI.parse('https://api.unsplash.com/search/photos?page=1&query=office&client_id=u8yaODUd2QHNIqX-Znc1D9cxAuV4UDZs3xofQzinSPI')
+
+# response = Net::HTTP.get_response(uri)
+
+# images = JSON.parse(response.body)
+
+# images.inspect
+
+Page.destroy_all
 ParkingTicket.destroy_all
 Vehicle.destroy_all
 Owner.destroy_all
@@ -70,6 +79,18 @@ NUMBER_OF_OWNERS.times do
   end
 end
 
+Page.create(title: 'About',
+            content: "The data source I'm using to populate Owner and Vehicle data is the Faker gem.
+                      I'm using the vehicle library for Vehicle information and the name library for Owner information.
+                      As for the ParkingTicket table, I'm pulling JSON from the Parking Ticket API on Winnipeg's open data portal
+                      to populate data in the ParkingTicket table, then assigning a Vehicle and Owner foreign key to each parking ticket
+                      (since a parking ticket can belong to both a Vehicle and an Owner).
+                      Lastly, the Accident table will *eventually* be populated with CSV data from the US Accidents data source API.
+                      This table will have a many-to-many association with the Vehicle and Owner tables
+                      (since vehicles and owners can have multiple accidents, and vice versa).",
+            permalink: 'about')
+
 puts "Created #{Owner.count} Owners."
 puts "Created #{Vehicle.count} Vehicles."
 puts "Created #{ParkingTicket.count} Parking Tickets."
+puts "Created #{Page.count} Pages."
