@@ -1,0 +1,29 @@
+<p>
+  Your search for '<%= @query %>' returned <%= pluralize(@owners.size, 'result') %>.
+</p>
+<table class="table">
+  <tr>
+    <th>Prefix:</th>
+    <th>First:</th>
+    <th>Middle:</th>
+    <th>Last:</th>
+    <th>Vehicles:</th>
+    <th>Parking Tickets:</th>
+    <th></th>
+  </tr>
+  <% @owners.each do |owner| %>
+    <!--<h3><%= "#{owner.prefix} #{owner.first_name} #{owner.middle_name} #{owner.last_name}" %></h3>-->
+    <tr>
+      <td><%= owner.prefix %></td>
+      <td><%= owner.first_name %></td>
+      <td><%= owner.middle_name %></td>
+      <td><%= owner.last_name %></td>
+      <td><%= owner.vehicles.count %></td>
+      <td><%= owner.parking_tickets.count %></td>
+      <td><%= link_to "View", owner %></td>
+    </tr>
+  <% end %>
+</table>
+
+
+<%= paginate @owners %>

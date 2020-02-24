@@ -4,22 +4,30 @@
     <title>VehicleInventory</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-  <header>
-    <h1 class="title"><%= link_to 'Vehicle Inventory', root_path %></h1>
-    <h2 class="subtitle">View owner, vehicle, and parking ticket data <strong>with ease.</strong>.</h2>
-    <p>
-      <%= link_to "Home", root_path %> |
-      <%= link_to "Vehicles", "" %> |
-      <%= link_to "Parking Tickets", "" %> |
-      <%= link_to "About", "" %> |
-    </p>
-  </header>
-    <%= yield %>
+    <section class="section">
+      <div class="container">
+        <h1 class="title"><%= link_to 'Vehicle Inventory', root_path %></h1>
+        <h2 class="subtitle">View owner, vehicle, and parking ticket data <strong>with ease.</strong>.</h2>
+
+        <nav class="breadcrumb is-centered" aria-label="breadcrumbs">
+          <ul>
+            <li><%= link_to "Home", root_path %></li>
+            <li><%= link_to "Vehicles", "" %></li>
+            <li><%= link_to "Parking Tickets", "" %></li>
+            <li><%= link_to "About", permalink_path('about') %></li>
+          </ul>
+          <%= render partial: 'search'%>
+        </nav>
+        <%= yield %>
+      </div>
+    </section>
   </body>
 </html>
