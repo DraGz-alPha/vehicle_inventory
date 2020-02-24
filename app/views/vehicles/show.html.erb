@@ -1,3 +1,5 @@
+<p>This vehicle belongs to <%= link_to "#{@vehicle.owner.prefix} #{@vehicle.owner.first_name} #{@vehicle.owner.middle_name} #{@vehicle.owner.last_name}", @vehicle.owner %>.</p>
+
 <h3><%= "#{@vehicle.year} #{@vehicle.make} #{@vehicle.model}" %></h3>
 <h6>Vehicle Information:</h6>
 <ul>
