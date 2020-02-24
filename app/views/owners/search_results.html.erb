@@ -1,3 +1,4 @@
+<%= render partial: 'search'%>
 <p>
   Your search for '<%= @query %>' returned <%= pluralize(@owners.size, 'result') %>.
 </p>
@@ -7,6 +8,7 @@
     <th>First:</th>
     <th>Middle:</th>
     <th>Last:</th>
+    <th>Age:</th>
     <th>Vehicles:</th>
     <th>Parking Tickets:</th>
     <th></th>
@@ -18,6 +20,7 @@
       <td><%= owner.first_name %></td>
       <td><%= owner.middle_name %></td>
       <td><%= owner.last_name %></td>
+      <td><%= owner.age %></td>
       <td><%= owner.vehicles.count %></td>
       <td><%= owner.parking_tickets.count %></td>
       <td><%= link_to "View", owner %></td>
