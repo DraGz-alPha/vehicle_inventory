@@ -1,2 +1,35 @@
-<h1>ParkingTickets#index</h1>
-<p>Find me in app/views/parking_tickets/index.html.erb</p>
+<% if @parking_tickets.empty? %>
+  <p>There are no parking tickets available.</p>
+<% else %>
+  <table class="table">
+      <tr>
+        <th>Ticket Number:</th>
+        <th>Violation:</th>
+        <th>Street:</th>
+        <th>Latitude:</th>
+        <th>Longitude:</th>
+        <th>Discounted Price:</th>
+        <th>Full Price:</th>
+        <th>Issue Date:</th>
+        <th>Owner:</th>
+        <th>Vehicle:</th>
+        <th></th>
+      </tr>
+      <% @parking_tickets.each do |parking_ticket| %>
+        <tr>
+          <td><%= parking_ticket.ticket_number %></td>
+          <td><%= parking_ticket.violation %></td>
+          <td><%= parking_ticket.street %></td>
+          <td><%= parking_ticket.latitude %></td>
+          <td><%= parking_ticket.longitude %></td>
+          <td>$<%= parking_ticket.discounted_price %>0</td>
+          <td>$<%= parking_ticket.full_price %>0</td>
+          <td><%= parking_ticket.issue_date %></td>
+          <td><%= "#{parking_ticket.owner.prefix} #{parking_ticket.owner.first_name} #{parking_ticket.owner.middle_name} #{parking_ticket.owner.last_name}" %></td>
+          <td><%= "#{parking_ticket.vehicle.year} #{parking_ticket.vehicle.make} #{parking_ticket.vehicle.model}" %></td>
+
+          <td><%= link_to "View", parking_ticket %></td>
+        </tr>
+      <% end %>
+    </table>
+<% end %>
