@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>VehicleInventory</title>
+    <title>Vehicle Inventory</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -20,11 +20,10 @@
         <nav class="breadcrumb is-centered" aria-label="breadcrumbs">
           <ul>
             <li><%= link_to "Home", root_path %></li>
-            <li><%= link_to "Vehicles", "" %></li>
-            <li><%= link_to "Parking Tickets", "" %></li>
+            <li><%= link_to "Vehicles", vehicles_path %></li>
+            <li><%= link_to "Parking Tickets", parking_tickets_path %></li>
             <li><%= link_to "About", permalink_path('about') %></li>
           </ul>
-          <%= render partial: 'search'%>
         </nav>
         <%= yield %>
       </div>
