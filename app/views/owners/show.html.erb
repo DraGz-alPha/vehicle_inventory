@@ -2,12 +2,43 @@
 <p>
   This owner has <%= @owner.vehicles.count %> vehicles.
 </p>
-<% @owner.vehicles.each do |vehicle| %>
-  <p><%= link_to "#{vehicle.year} #{vehicle.make} #{vehicle.model}", vehicle %></p>
-<% end %>
+<div class="columns is-multiline">
+  <% @owner.vehicles.each do |vehicle| %>
+    <div class="column is-half">
+        <div class="card">
+          <div class="card-content">
+            <p class="title is-4"><%= link_to "#{vehicle.year} #{vehicle.make} #{vehicle.model}", vehicle %></p>
+            <ul>
+              <li>VIN: <%= vehicle.vin %></li>
+              <li>Color: <%= vehicle.color %></li>
+              <li>Transmission Type: <%= vehicle.transmission_type %></li>
+              <li>Engine: <%= vehicle.engine_size %></li>
+              <li>Kilometrage: <%= vehicle.kilometrage %></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    <p></p>
+  <% end %>
+</div>
 <p>
   This owner has <%= @owner.parking_tickets.count %> parking tickets.
 </p>
-<% @owner.parking_tickets.each do |ticket| %>
-  <h3><%= link_to "#{ticket.ticket_number} - #{ticket.issue_date}", ticket %></h3>
-<% end %>
+<div class="columns is-multiline">
+  <% @owner.parking_tickets.each do |ticket| %>
+    <div class="column is-one-third">
+      <div class="card">
+        <div class="card-content">
+          <p class="title is-4"><%= link_to ticket.ticket_number, ticket %></p>
+          <ul>
+            <li>Violation: <%= ticket.violation %></li>
+            <li>Street: <%= ticket.street %></li>
+            <li>Discounted Price: $<%= ticket.discounted_price %>0</li>
+            <li>Full Price: $<%= ticket.full_price %>0</li>
+            <li>Issue date: <%= ticket.issue_date %></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
