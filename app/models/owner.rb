@@ -4,5 +4,6 @@ class Owner < ApplicationRecord
   has_many :vehicles
   has_many :parking_tickets
 
-  validates :first_name, :last_name, :prefix, :age, presence: true
+  validates :middle_name, uniqueness: true
+  validates :prefix, :first_name, :middle_name, :last_name, :age, presence: true
 end

@@ -1,13 +1,6 @@
 # frozen_string_literal: true
 
-require 'net/http'
-require 'uri'
-require 'json'
-
-uri = URI.parse('https://data.winnipeg.ca/resource/bhrt-29rb.json')
-
-response = Net::HTTP.get_response(uri)
-
+response = HTTParty.get('https://data.winnipeg.ca/resource/bhrt-29rb.json')
 parking_tickets = JSON.parse(response.body)
 
 # uri = URI.parse('https://api.unsplash.com/search/photos?page=1&query=office&client_id=u8yaODUd2QHNIqX-Znc1D9cxAuV4UDZs3xofQzinSPI')
@@ -29,7 +22,7 @@ current_ticket_index = 0
 
 NUMBER_OF_OWNERS.times do
   owner_first_name = Faker::Name.first_name
-  owner_middle_name = Faker::Name.middle_name
+  owner_middle_name = Faker::Name.unique.middle_name
   owner_last_name = Faker::Name.last_name
   owner_prefix = Faker::Name.prefix
   owner_age = rand(18..100)
