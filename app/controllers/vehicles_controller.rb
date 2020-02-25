@@ -2,7 +2,7 @@
 
 class VehiclesController < ApplicationController
   def index
-    @vehicles = Vehicle.all
+    @vehicles = Vehicle.all.order('year DESC')
   end
 
   def show
