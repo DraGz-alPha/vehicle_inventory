@@ -1,2 +1,35 @@
-<h1>Vehicles#index</h1>
-<p>Find me in app/views/vehicles/index.html.erb</p>
+<% if @vehicles.empty? %>
+  <p>There are no vehicles available.</p>
+<% else %>
+  <table class="table">
+      <tr>
+        <th>VIN:</th>
+        <th>Year:</th>
+        <th>Make:</th>
+        <th>Model:</th>
+        <th>Color:</th>
+        <th>Transmission Type:</th>
+        <th>Engine:</th>
+        <th>Kilometrage:</th>
+        <th>Owner:</th>
+        <th>Parking Tickets:</th>
+        <th></th>
+      </tr>
+      <% @vehicles.each do |vehicle| %>
+        <tr>
+          <td><%= vehicle.vin %></td>
+          <td><%= vehicle.year %></td>
+          <td><%= vehicle.make %></td>
+          <td><%= vehicle.model %></td>
+          <td><%= vehicle.color %></td>
+          <td><%= vehicle.transmission_type %></td>
+          <td><%= vehicle.engine_size %></td>
+          <td><%= vehicle.kilometrage %></td>
+          <td><%= "#{vehicle.owner.prefix} #{vehicle.owner.first_name} #{vehicle.owner.middle_name} #{vehicle.owner.last_name}" %></td>
+          <td><%= vehicle.parking_tickets.count %></td>
+
+          <td><%= link_to "View", vehicle %></td>
+        </tr>
+      <% end %>
+    </table>
+<% end %>
