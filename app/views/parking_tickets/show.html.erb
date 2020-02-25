@@ -1,3 +1,14 @@
+<p>
+  Owner:
+  <%= link_to "#{@parking_ticket.owner.prefix} #{@parking_ticket.owner.first_name} #{@parking_ticket.owner.middle_name} #{@parking_ticket.owner.last_name}", @parking_ticket.owner %>
+</p>
+
+<p>
+  Vehicle:
+  <%= link_to "#{@parking_ticket.vehicle.year} #{@parking_ticket.vehicle.make} #{@parking_ticket.vehicle.model}.", @parking_ticket.vehicle %>
+</p>
+
+
 <h3><%= @parking_ticket.ticket_number %></h3>
 <h5><%= @parking_ticket.issue_date %></h5>
 
@@ -8,5 +19,5 @@
 <p>Full Price: <span style="color:green; font-weight:bold"><%= "$#{@parking_ticket.full_price}0" %></span></p>
 
 <p>
-<%= image_tag "https://maps.googleapis.com/maps/api/staticmap?zoom=17&size=400x300&markers=size:small%7Ccolor:red%7C#{@parking_ticket.latitude},#{@parking_ticket.longitude}&key=#{Rails.application.credentials.google_maps_api_key}", alt: "Map" %>
+  <%= image_tag "https://maps.googleapis.com/maps/api/staticmap?zoom=17&size=400x300&markers=size:small%7Ccolor:red%7C#{@parking_ticket.latitude},#{@parking_ticket.longitude}&key=#{Rails.application.credentials.google_maps_api_key}", alt: "Map" %>
 </p>
